@@ -60,23 +60,23 @@ abstract class SensitiveActivity : AppCompatActivity(), SensorEventListener {
         if (currentOrientationValue != this.currentOrientation?.value) {
             var orientationChanged = false
             when (currentOrientationValue) {
-                DeviceOrientation.LANDSCAPELEFT.value -> {
-                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.LANDSCAPELEFT.value
+                DeviceOrientation.LANDSCAPE_LEFT.value -> {
+                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.LANDSCAPE_LEFT.value
                 }
-                DeviceOrientation.LANDSCAPERIGHT.value -> {
-                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.LANDSCAPERIGHT.value
+                DeviceOrientation.LANDSCAPE_RIGHT.value -> {
+                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.LANDSCAPE_RIGHT.value
                 }
                 DeviceOrientation.PORTRAIT.value -> {
                     orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.PORTRAIT.value
                 }
-                DeviceOrientation.UPSIDEDOWN.value -> {
-                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.UPSIDEDOWN.value
+                DeviceOrientation.UPSIDE_DOWN.value -> {
+                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.UPSIDE_DOWN.value
                 }
-                DeviceOrientation.FACEUP.value -> {
-                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.FACEUP.value
+                DeviceOrientation.FACE_UP.value -> {
+                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.FACE_UP.value
                 }
-                DeviceOrientation.FACEDOWN.value -> {
-                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.FACEDOWN.value
+                DeviceOrientation.FACE_DOWN.value -> {
+                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.FACE_DOWN.value
                 }
                 else -> {
                     // ignored
