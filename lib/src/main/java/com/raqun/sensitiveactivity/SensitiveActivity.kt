@@ -2,11 +2,11 @@ package com.raqun.sensitiveactivity
 
 import android.content.Context
 import android.hardware.Sensor
+import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.hardware.SensorEvent
 
 
 /**
@@ -27,7 +27,6 @@ abstract class SensitiveActivity : AppCompatActivity(), SensorEventListener {
 
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL)
     }
 
     public override fun onResume() {
@@ -51,36 +50,33 @@ abstract class SensitiveActivity : AppCompatActivity(), SensorEventListener {
             val x = ScreenOrientations.orientations[i][0]
             val y = ScreenOrientations.orientations[i][1]
             val z = ScreenOrientations.orientations[i][2]
-            if (x1 > x - threshold && x1 < x + threshold && y1 > y - threshold && y1 < y + threshold && z1 > z - threshold * 2.0 && z1 < z + threshold * 2.0) {
+            if (x1 > x - threshold
+                    && x1 < x + threshold
+                    && y1 > y - threshold
+                    && y1 < y + threshold
+                    && z1 > z - threshold * 2.0
+                    && z1 < z + threshold * 2.0) {
                 currentOrientationValue = 1 shl i
                 break
             }
         }
 
         if (currentOrientationValue != this.currentOrientation?.value) {
-            var orientationChanged = false
-            when (currentOrientationValue) {
-                DeviceOrientation.LANDSCAPE_LEFT.value -> {
-                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.LANDSCAPE_LEFT.value
-                }
-                DeviceOrientation.LANDSCAPE_RIGHT.value -> {
-                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.LANDSCAPE_RIGHT.value
-                }
-                DeviceOrientation.PORTRAIT.value -> {
-                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.PORTRAIT.value
-                }
-                DeviceOrientation.UPSIDE_DOWN.value -> {
-                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.UPSIDE_DOWN.value
-                }
-                DeviceOrientation.FACE_UP.value -> {
-                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.FACE_UP.value
-                }
-                DeviceOrientation.FACE_DOWN.value -> {
-                    orientationChanged = currentOrientationValue and this.defaultOrientationsSet === DeviceOrientation.FACE_DOWN.value
-                }
-                else -> {
-                    // ignored
-                }
+            val orientationChanged = when (currentOrientationValue) {
+                DeviceOrientation.LANDSCAPE_LEFT.value ->
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.LANDSCAPELEFT.value
+                DeviceOrientation.LANDSCAPE_RIGHT.value ->
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.LANDSCAPERIGHT.value
+                DeviceOrientation.PORTRAIT.value ->
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.PORTRAIT.value
+                DeviceOrientation.UPSIDE_DOWN.value ->
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.UPSIDEDOWN.value
+                DeviceOrientation.FACE_UP.value ->
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.FACEUP.value
+                DeviceOrientation.FACE_DOWN.value ->
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.FACEDOWN.value
+                else -> false
+
             }
 
             if (orientationChanged) {
