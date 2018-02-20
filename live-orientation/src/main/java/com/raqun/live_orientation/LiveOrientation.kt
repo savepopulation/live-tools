@@ -44,9 +44,9 @@ class LiveOrientation(context: Context) : LiveData<DeviceOrientation>(), SensorE
         var currentOrientationValue = -1
 
         for (i in 0..5) {
-            val x = ScreenOrientations.orientations[i][0]
-            val y = ScreenOrientations.orientations[i][1]
-            val z = ScreenOrientations.orientations[i][2]
+            val x = Constants.orientations[i][0]
+            val y = Constants.orientations[i][1]
+            val z = Constants.orientations[i][2]
             if (x1 > x - threshold
                     && x1 < x + threshold
                     && y1 > y - threshold
