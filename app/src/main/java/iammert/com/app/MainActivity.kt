@@ -1,17 +1,12 @@
 package iammert.com.app
 
 import android.os.Bundle
-import com.raqun.sensitiveactivity.DeviceOrientation
-import com.raqun.sensitiveactivity.SensitiveActivity
+import android.support.v7.app.AppCompatActivity
 
-class MainActivity : SensitiveActivity() {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
-
-    override fun onOrientationChanged(deviceOrientation: DeviceOrientation?) {
-        
     }
 }

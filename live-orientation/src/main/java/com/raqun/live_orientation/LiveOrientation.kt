@@ -1,46 +1,43 @@
 package com.raqun.sensitiveactivity
 
+import android.arch.lifecycle.LiveData
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-
 
 /**
- * Created by tyln on 19.02.2018.
+ * Created by tyln on 20.02.2018.
  */
-abstract class SensitiveActivity : AppCompatActivity(), SensorEventListener {
+class LiveOrientation(context: Context) : LiveData<DeviceOrientation>(), SensorEventListener {
 
-    private lateinit var sensorManager: SensorManager
-    private lateinit var accelerometer: Sensor
+    private val sensorManager: SensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
+    private val accelerometer: Sensor
 
     private var currentOrientation: DeviceOrientation? = null
     private val defaultOrientationsSet = Constants.deviceOrientationAllLandscape or Constants.deviceOrientationAllPortrait
 
-    abstract fun onOrientationChanged(deviceOrientation: DeviceOrientation?)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+    init {
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
     }
 
-    public override fun onResume() {
-        super.onResume()
+    override fun onActive() {
+        super.onActive()
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL)
     }
 
-    public override fun onPause() {
+    override fun onInactive() {
         sensorManager.unregisterListener(this)
-        super.onPause()
+        super.onInactive()
     }
 
-    override fun onSensorChanged(event: SensorEvent) {
-        val x1 = event.values[0]
+    override fun getValue(): DeviceOrientation? {
+        return currentOrientation
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        val x1 = event!!.values[0]
         val y1 = event.values[1]
         val z1 = event.values[2]
         val threshold = 3.5f
@@ -64,31 +61,29 @@ abstract class SensitiveActivity : AppCompatActivity(), SensorEventListener {
         if (currentOrientationValue != this.currentOrientation?.value) {
             val orientationChanged = when (currentOrientationValue) {
                 DeviceOrientation.LANDSCAPE_LEFT.value ->
-                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.LANDSCAPELEFT.value
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.LANDSCAPE_LEFT.value
                 DeviceOrientation.LANDSCAPE_RIGHT.value ->
-                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.LANDSCAPERIGHT.value
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.LANDSCAPE_RIGHT.value
                 DeviceOrientation.PORTRAIT.value ->
                     currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.PORTRAIT.value
                 DeviceOrientation.UPSIDE_DOWN.value ->
-                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.UPSIDEDOWN.value
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.UPSIDE_DOWN.value
                 DeviceOrientation.FACE_UP.value ->
-                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.FACEUP.value
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.FACE_UP.value
                 DeviceOrientation.FACE_DOWN.value ->
-                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.FACEDOWN.value
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.FACE_DOWN.value
                 else -> false
-
             }
 
             if (orientationChanged) {
                 this.currentOrientation = DeviceOrientation.values()[currentOrientationValue]
-                onOrientationChanged(currentOrientation)
+                value = currentOrientation
             }
         }
     }
 
-    override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {
+    override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
         // no-op
     }
 
-    fun getCurrentOrientation() = this.currentOrientation
 }
