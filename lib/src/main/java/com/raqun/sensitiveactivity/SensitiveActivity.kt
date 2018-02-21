@@ -64,17 +64,17 @@ abstract class SensitiveActivity : AppCompatActivity(), SensorEventListener {
         if (currentOrientationValue != this.currentOrientation?.value) {
             val orientationChanged = when (currentOrientationValue) {
                 DeviceOrientation.LANDSCAPE_LEFT.value ->
-                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.LANDSCAPELEFT.value
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.LANDSCAPE_LEFT.value
                 DeviceOrientation.LANDSCAPE_RIGHT.value ->
-                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.LANDSCAPERIGHT.value
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.LANDSCAPE_RIGHT.value
                 DeviceOrientation.PORTRAIT.value ->
                     currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.PORTRAIT.value
                 DeviceOrientation.UPSIDE_DOWN.value ->
-                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.UPSIDEDOWN.value
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.UPSIDE_DOWN.value
                 DeviceOrientation.FACE_UP.value ->
-                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.FACEUP.value
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.FACE_UP.value
                 DeviceOrientation.FACE_DOWN.value ->
-                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.FACEDOWN.value
+                    currentOrientationValue and this.defaultOrientationsSet == DeviceOrientation.FACE_DOWN.value
                 else -> false
 
             }
