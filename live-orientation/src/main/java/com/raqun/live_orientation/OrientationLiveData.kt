@@ -10,7 +10,7 @@ import android.hardware.SensorManager
 /**
  * Created by tyln on 20.02.2018.
  */
-class LiveOrientation(context: Context) : LiveData<DeviceOrientation>(), SensorEventListener {
+class OrientationLiveData(context: Context) : LiveData<DeviceOrientation>(), SensorEventListener {
 
     private val sensorManager: SensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     private val accelerometer: Sensor
