@@ -1,4 +1,4 @@
-package com.raqun.sensitiveactivity
+package com.raqun.live_orientation
 
 /**
  * Created by tyln on 19.02.2018.
