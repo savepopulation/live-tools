@@ -7,20 +7,24 @@ import com.google.android.gms.common.ConnectionResult
  * Created by mertsimsek on 21/02/2018.
  */
 
-class LocationData private constructor(val status: Status, val location: Location?, val connectionResult: ConnectionResult?) {
+class LocationData private constructor(val status: Status, val location: Location? = null, val exception: Exception? = null, val permissionList: Array<String?> = emptyArray()) {
 
     enum class Status {
-        SUCCESS, ERROR
+        LOCATION_SUCCESS, ERROR, PERMISSION_REQUIRED
     }
 
     companion object {
 
         fun success(location: Location): LocationData {
-            return LocationData(Status.SUCCESS, location, null)
+            return LocationData(Status.LOCATION_SUCCESS, location)
         }
 
-        fun error(connectionResult: ConnectionResult): LocationData {
-            return LocationData(Status.ERROR, null, connectionResult)
+        fun error(exception: Exception): LocationData {
+            return LocationData(Status.ERROR, exception = exception)
+        }
+
+        fun permissionRequired(permissionList: List<String>): LocationData {
+            return LocationData(Status.PERMISSION_REQUIRED, permissionList = permissionList.toTypedArray())
         }
     }
 }

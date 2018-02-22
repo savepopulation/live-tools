@@ -35,6 +35,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation project(':live-orientation')
+    implementation project(':live-location')
 }
 repositories {
     mavenCentral()
