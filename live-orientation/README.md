@@ -1,6 +1,6 @@
 # Live Orientation
-Live Orientation is a Live Data extended sensor based library. You can observe your device's orientation changes
-even if your device is locked to portrait mode.<br>
+Live Orientation is a Live Data extended sensor based library. You can observe your device's orientation changes.
+<br>
 
 ### How To Use
 
