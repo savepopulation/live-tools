@@ -1,1 +1,1 @@
-include ':app', ':live-orientation', ':live-connection'
+include ':app', ':live-orientation', ':live-connection', ':live-location'

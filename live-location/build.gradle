@@ -1,12 +1,13 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 26
 
+
+
     defaultConfig {
-        applicationId "iammert.com.app"
         minSdkVersion 17
         targetSdkVersion 26
         versionCode 1
@@ -26,20 +27,22 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'android.arch.lifecycle:runtime:1.1.0'
-    implementation 'android.arch.lifecycle:livedata:1.1.0'
-    // Live Orientation
-    implementation project(':live-orientation')
-    implementation project(':live-location')
-    implementation project(':live-connection')
-}
-repositories {
-    mavenCentral()
+
+    // Android Arch
+    implementation "android.arch.lifecycle:runtime:1.1.0"
+    implementation "android.arch.lifecycle:livedata:1.1.0"
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // Play Services - Firebase
+    def playServiceVersion = "11.8.0"
+    implementation "com.google.android.gms:play-services-base:$playServiceVersion"
+    implementation "com.google.android.gms:play-services-location:$playServiceVersion"
 }
