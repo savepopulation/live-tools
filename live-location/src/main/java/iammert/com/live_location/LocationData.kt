@@ -1,21 +1,25 @@
 package iammert.com.live_location
 
 import android.location.Location
-import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.api.ResolvableApiException
 
 /**
  * Created by mertsimsek on 21/02/2018.
  */
 
-class LocationData private constructor(val status: Status, val location: Location? = null, val exception: Exception? = null, val permissionList: Array<String?> = emptyArray()) {
+class LocationData private constructor(val status: Status,
+                                       val location: Location? = null,
+                                       val exception: Exception? = null,
+                                       val resolvableApiException: ResolvableApiException? = null,
+                                       val permissionList: Array<String?> = emptyArray()) {
 
     enum class Status {
-        LOCATION_SUCCESS, ERROR, PERMISSION_REQUIRED
+        LOCATION_SUCCESS, ERROR, PERMISSION_REQUIRED, ENABLE_SETTINGS
     }
 
     companion object {
 
-        fun success(location: Location): LocationData {
+        fun success(location: Location?): LocationData {
             return LocationData(Status.LOCATION_SUCCESS, location)
         }
 
@@ -25,6 +29,10 @@ class LocationData private constructor(val status: Status, val location: Locatio
 
         fun permissionRequired(permissionList: List<String>): LocationData {
             return LocationData(Status.PERMISSION_REQUIRED, permissionList = permissionList.toTypedArray())
+        }
+
+        fun settingsRequired(exception: ResolvableApiException): LocationData {
+            return LocationData(Status.ENABLE_SETTINGS, resolvableApiException = exception)
         }
     }
 }

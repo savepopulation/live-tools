@@ -27,7 +27,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.google.android.gms:play-services-location:11.8.0"
+    api "com.google.android.gms:play-services-location:11.8.0"
     api "android.arch.lifecycle:livedata:1.1.0"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

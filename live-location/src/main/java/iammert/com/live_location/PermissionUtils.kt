@@ -13,5 +13,8 @@ class PermissionUtils {
         fun checkLocationPermission(context: Context) =
                 ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) ==
                         PackageManager.PERMISSION_GRANTED
+
+        fun checkIfPermissionsGranted(grantResult: IntArray) =
+                grantResult.none { it != PackageManager.PERMISSION_GRANTED }
     }
 }
