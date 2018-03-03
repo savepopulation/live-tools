@@ -70,7 +70,7 @@ class LocationLiveData(private val activity: Activity) : MediatorLiveData<Locati
 
     /**
      * Checks runtime permission first.
-     * Then check if user is enable gps settings.
+     * Then check if GPS settings is enabled by user
      * If all good, then start listening user location
      * and update livedata
      */
