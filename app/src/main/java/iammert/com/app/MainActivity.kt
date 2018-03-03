@@ -6,7 +6,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import com.google.android.gms.common.api.ResolvableApiException
+import com.raqun.live_orientation.OrientationLiveData
 import iammert.com.live_location.LocationData
 import iammert.com.live_location.LocationLiveData
 import iammert.com.live_location.PermissionUtils
@@ -18,6 +20,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        OrientationLiveData(this)
+                .observe(this, Observer {
+                    it?.let { Toast.makeText(this, it.name, Toast.LENGTH_SHORT).show() }
+                })
 
         locationLiveData = LocationLiveData(this)
         locationLiveData.observe(this,

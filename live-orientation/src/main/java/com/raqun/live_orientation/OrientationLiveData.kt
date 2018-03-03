@@ -1,4 +1,4 @@
-package com.raqun.sensitiveactivity
+package com.raqun.live_orientation
 
 import android.arch.lifecycle.LiveData
 import android.content.Context
@@ -76,7 +76,7 @@ class OrientationLiveData(context: Context) : LiveData<DeviceOrientation>(), Sen
             }
 
             if (orientationChanged) {
-                this.currentOrientation = DeviceOrientation.values()[currentOrientationValue]
+                this.currentOrientation = DeviceOrientation.byValue(currentOrientationValue)
                 value = currentOrientation
             }
         }
