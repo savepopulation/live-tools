@@ -39,7 +39,7 @@ dependencies {
 
     // Live Orientation
     implementation project(':live-orientation')
-
+    implementation project(':live-location')
 }
 repositories {
     mavenCentral()
