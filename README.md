@@ -23,7 +23,7 @@ locationLiveData.observe(this,
             when (it?.status) {
                 LocationData.Status.PERMISSION_REQUIRED -> // request permission. (it.permissionList)
                 LocationData.Status.ENABLE_SETTINGS -> //enable location settings (it.resolvableApiException)
-                LocationData.Status.LOCATION_SUCCESS -> // location is ready to use
+                LocationData.Status.LOCATION_SUCCESS -> // location is ready to use (it.location)
             }
         })
 
