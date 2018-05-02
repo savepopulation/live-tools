@@ -6,8 +6,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.Toast
 import com.google.android.gms.common.api.ResolvableApiException
+import com.raqun.live_battery.BatteryLiveData
 import com.raqun.live_orientation.OrientationLiveData
 import iammert.com.live_location.LocationData
 import iammert.com.live_location.LocationLiveData
@@ -36,6 +38,20 @@ class MainActivity : AppCompatActivity() {
                 })
 
         locationLiveData.start()
+
+        BatteryLiveData(this)
+                .observe(this, Observer {
+                    if (it == null) {
+                        Toast.makeText(this, "it null", Toast.LENGTH_SHORT).show()
+                    }
+                    it?.let {
+                        Toast.makeText(this, "Status: " + it.status +
+                                " Plug: " + it.plug +
+                                " Level: " + it.level +
+                                " Scale: " + it.scale +
+                                " Percentage " + it.percentage, Toast.LENGTH_LONG).show()
+                    }
+                })
     }
 
     private fun requestPermissions(permissionList: Array<String?>) {

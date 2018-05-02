@@ -7,13 +7,12 @@ import android.content.Intent
 import android.content.BroadcastReceiver
 import android.content.IntentFilter
 import android.support.v4.content.LocalBroadcastManager
-import android.R.attr.level
 
 
 /**
  * Created by tyln on 2.05.2018.
  */
-class BatteryLiveData(val context: Context) : LiveData<BatteryInfo>() {
+class BatteryLiveData(private val context: Context) : LiveData<BatteryInfo>() {
 
     private val powerConnectionReceiver: PowerConnectionReceiver
 
@@ -23,16 +22,16 @@ class BatteryLiveData(val context: Context) : LiveData<BatteryInfo>() {
 
     override fun onActive() {
         super.onActive()
-        LocalBroadcastManager.getInstance(context).registerReceiver(powerConnectionReceiver,
+        context.registerReceiver(powerConnectionReceiver,
                 IntentFilter().apply {
                     addAction(Intent.ACTION_POWER_CONNECTED)
                     addAction(Intent.ACTION_POWER_DISCONNECTED)
+                    addAction(Intent.ACTION_BATTERY_CHANGED)
                 })
-
     }
 
     override fun onInactive() {
-        LocalBroadcastManager.getInstance(context).unregisterReceiver(powerConnectionReceiver)
+        context.unregisterReceiver(powerConnectionReceiver)
         super.onInactive()
     }
 
@@ -52,9 +51,9 @@ class BatteryLiveData(val context: Context) : LiveData<BatteryInfo>() {
             else -> BatteryPlug.NOT_RECOGNISED
         }
 
-        val level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
-        val scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
-        val prc = level / scale.toFloat()
+        val level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
+        val scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1)
+        val prc = 100 * (level / scale.toFloat())
 
         postValue(BatteryInfo(batteryStatus, batteryPlug, level, scale, prc))
     }

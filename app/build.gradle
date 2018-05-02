@@ -37,9 +37,10 @@ dependencies {
     implementation "android.arch.lifecycle:runtime:1.1.0"
     implementation "android.arch.lifecycle:livedata:1.1.0"
 
-    // Live Orientation
+    // Live Tools
     implementation project(':live-orientation')
     implementation project(':live-location')
+    implementation project(':live-battery')
 }
 repositories {
     mavenCentral()
