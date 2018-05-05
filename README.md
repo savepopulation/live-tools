@@ -31,7 +31,15 @@ locationLiveData.observe(this,
 locationLiveData.start()
 ```
 
-
+### Dependency<br>
+```
+maven { url 'https://jitpack.io' }
+```
+```
+dependencies {
+    implementation 'com.github.savepopulation:live-tools:v1.0.0'
+}
+```
 
 ### Contributors:<br>
 
