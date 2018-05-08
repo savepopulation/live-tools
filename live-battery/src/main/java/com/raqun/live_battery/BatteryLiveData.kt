@@ -36,14 +36,14 @@ class BatteryLiveData(private val context: Context) : LiveData<BatteryInfo>() {
     }
 
     private fun publishBatteryInfo(intent: Intent) {
-        val status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1)
+        val status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, NO_VAL)
         val batteryStatus = when (status) {
             BatteryManager.BATTERY_STATUS_CHARGING -> BatteryStatus.CHARGING
             BatteryManager.BATTERY_STATUS_FULL -> BatteryStatus.FULL
             else -> BatteryStatus.NOT_CHARGING
         }
 
-        val chargePlug = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1)
+        val chargePlug = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, NO_VAL)
         val batteryPlug = when (chargePlug) {
             BatteryManager.BATTERY_PLUGGED_AC -> BatteryPlug.AC
             BatteryManager.BATTERY_PLUGGED_USB -> BatteryPlug.USB
@@ -51,8 +51,8 @@ class BatteryLiveData(private val context: Context) : LiveData<BatteryInfo>() {
             else -> BatteryPlug.NOT_RECOGNISED
         }
 
-        val level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
-        val scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1)
+        val level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, NO_VAL)
+        val scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, NO_VAL)
         val prc = 100 * (level / scale.toFloat())
 
         postValue(BatteryInfo(batteryStatus, batteryPlug, level, scale, prc))
@@ -62,5 +62,9 @@ class BatteryLiveData(private val context: Context) : LiveData<BatteryInfo>() {
         override fun onReceive(context: Context, intent: Intent) {
             publishBatteryInfo(intent)
         }
+    }
+
+    companion object {
+        private const val NO_VAL = -1
     }
 }
