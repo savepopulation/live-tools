@@ -41,9 +41,6 @@ class MainActivity : AppCompatActivity() {
 
         BatteryLiveData(this)
                 .observe(this, Observer {
-                    if (it == null) {
-                        Toast.makeText(this, "it null", Toast.LENGTH_SHORT).show()
-                    }
                     it?.let {
                         Toast.makeText(this, "Status: " + it.status +
                                 " Plug: " + it.plug +
