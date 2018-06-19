@@ -31,6 +31,21 @@ locationLiveData.observe(this,
 locationLiveData.start()
 ```
 
+## live-battery
+Observes battery changes, state, scale, level and plug info.
+```kotlin
+BatteryLiveData(this)
+                .observe(this, Observer {
+                    it?.let {
+                        Toast.makeText(this, "Status: " + it.status +
+                                " Plug: " + it.plug +
+                                " Level: " + it.level +
+                                " Scale: " + it.scale +
+                                " Percentage " + it.percentage, Toast.LENGTH_LONG).show()
+                    }
+})
+```
+
 ### Dependency<br>
 ```
 maven { url 'https://jitpack.io' }
