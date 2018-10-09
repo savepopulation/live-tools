@@ -46,6 +46,33 @@ BatteryLiveData(this)
 })
 ```
 
+## live-media-selector
+
+Observes picked camera or gallery image uri.
+```kotlin
+MediaSelectorLiveData(this)
+      .observe(this, Observer {
+                when (it?.status) {
+                    MediaData.Status.MEDIA_SUCCESS -> { it.uri }
+                    MediaData.Status.PERMISSION_REQUIRED -> { it.permissionList }
+                    MediaData.Status.ERROR -> { it.exception }
+                }
+            })
+```
+
+```kotlin
+override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+      super.onActivityResult(requestCode, resultCode, data)
+      mediaSelectorLiveData.onActivityResult(requestCode, resultCode, data)
+}
+```
+
+```kotlin
+mediaSelectorLiveData.openCamera()
+mediaSelectorLiveData.openGallery()
+```
+
+
 ### Dependency<br>
 ```
 maven { url 'https://jitpack.io' }

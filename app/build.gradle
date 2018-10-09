@@ -41,6 +41,7 @@ dependencies {
     implementation project(':live-orientation')
     implementation project(':live-location')
     implementation project(':live-battery')
+    implementation project(':live-media-selector')
 }
 repositories {
     mavenCentral()
