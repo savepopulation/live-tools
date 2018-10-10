@@ -9,17 +9,17 @@ import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 
-val DATE_PATTERN_YMD_HMS = "yyyyMMdd_HHmmss"
-val SUFFIX_JPEG = ".jpg"
+const val DATE_PATTERN_YMD_HMS = "yyyyMMdd_HHmmss"
+const val SUFFIX_JPEG = ".jpg"
 
-inline fun Context.createImageFile(): File {
+fun Context.createImageFile(): File {
     val timeStamp = SimpleDateFormat(DATE_PATTERN_YMD_HMS, Locale.getDefault()).format(Date())
     val imageFileName = "IMAGE_$timeStamp"
     val storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
     return File.createTempFile(imageFileName, SUFFIX_JPEG, storageDir)
 }
 
-inline fun File.getUriFromFile(context: Context): Uri {
+fun File.getUriFromFile(context: Context): Uri {
     return if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
         FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider", this)
     } else {
