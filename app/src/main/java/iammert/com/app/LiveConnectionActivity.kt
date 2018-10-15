@@ -16,7 +16,7 @@ class LiveConnectionActivity : AppCompatActivity() {
 
         ConnectionLiveData(this).observe(this, Observer {
             when (it) {
-                is LiveValue<ConnectionType> -> handleConnectionType(it.value)
+                is LiveValue<*> -> handleConnectionType(it.value as ConnectionType?)
                 is PermissionRequired -> handlePermissions(it.requiredPermissions)
             }
         })
