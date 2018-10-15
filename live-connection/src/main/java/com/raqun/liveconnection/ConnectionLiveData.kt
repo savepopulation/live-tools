@@ -10,11 +10,15 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.net.wifi.WifiManager
 import android.support.v4.content.LocalBroadcastManager
+import com.raqun.live_tools_core.LiveResult
+import com.raqun.live_tools_core.PermissionUtil
+import com.raqun.live_tools_core.LiveResult.LiveValue
+import com.raqun.live_tools_core.LiveResult.PermissionRequired
 
 /**
  * Created by tyln on 22.02.2018.
  */
-class ConnectionLiveData(private val context: Context) : LiveData<ConnectionType>() {
+class ConnectionLiveData(private val context: Context) : LiveData<LiveResult>() {
 
     private val networkChangeReceiver: NetworkChangeReceiver
 
@@ -36,16 +40,18 @@ class ConnectionLiveData(private val context: Context) : LiveData<ConnectionType
         super.onInactive()
     }
 
-    @SuppressLint("MissingPermission")
-    private fun getConnectionStatus(): ConnectionType {
+    private fun getConnectionStatus(): LiveResult {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
-        // TODO handle permission
+        if (!PermissionUtil.isConnectionPermissionsGranted(context)) {
+            return PermissionRequired(PermissionUtil.connectionPermissions)
+        }
+
         val networkInfo: NetworkInfo? = cm.activeNetworkInfo as NetworkInfo
         return when (networkInfo?.type) {
-            ConnectivityManager.TYPE_WIFI -> ConnectionType.WIFI
-            ConnectivityManager.TYPE_MOBILE -> ConnectionType.MOBILE
-            else -> ConnectionType.UNAVAILABLE
+            ConnectivityManager.TYPE_WIFI -> LiveValue(ConnectionType.WIFI)
+            ConnectivityManager.TYPE_MOBILE -> LiveValue(ConnectionType.MOBILE)
+            else -> LiveValue(ConnectionType.UNAVAILABLE)
         }
     }
 
