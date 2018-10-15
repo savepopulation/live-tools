@@ -1,6 +1,5 @@
 package com.raqun.liveconnection
 
-import android.annotation.SuppressLint
 import android.arch.lifecycle.LiveData
 import android.content.BroadcastReceiver
 import android.content.Context

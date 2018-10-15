@@ -38,6 +38,7 @@ dependencies {
     implementation "android.arch.lifecycle:livedata:1.1.0"
 
     // Live Tools
+    implementation project(':live-tools-core')
     implementation project(':live-orientation')
     implementation project(':live-location')
     implementation project(':live-battery')
