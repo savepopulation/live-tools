@@ -38,17 +38,6 @@ class MainActivity : AppCompatActivity() {
                 })
 
         locationLiveData.start()
-
-        BatteryLiveData(this)
-                .observe(this, Observer {
-                    it?.let {
-                        Toast.makeText(this, "Status: " + it.status +
-                                " Plug: " + it.plug +
-                                " Level: " + it.level +
-                                " Scale: " + it.scale +
-                                " Percentage " + it.percentage, Toast.LENGTH_LONG).show()
-                    }
-                })
     }
 
     private fun requestPermissions(permissionList: Array<String?>) {

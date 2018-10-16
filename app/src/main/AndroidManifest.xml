@@ -19,6 +19,8 @@
 
         <activity android:name=".LiveConnectionActivity" />
 
+        <activity android:name=".LiveBatteryActivity" />
+
     </application>
 
 </manifest>
