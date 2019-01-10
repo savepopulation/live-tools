@@ -9,10 +9,8 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.net.wifi.WifiManager
 import android.support.v4.content.LocalBroadcastManager
-import com.raqun.live_tools_core.LiveResult
-import com.raqun.live_tools_core.PermissionUtil
-import com.raqun.live_tools_core.LiveResult.LiveValue
-import com.raqun.live_tools_core.LiveResult.PermissionRequired
+import com.iammert.live_tools_common.LiveResult
+import com.iammert.live_tools_common.PermissionUtil
 
 /**
  * Created by tyln on 22.02.2018.
@@ -43,14 +41,14 @@ class ConnectionLiveData(private val context: Context) : LiveData<LiveResult>() 
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
         if (!PermissionUtil.isConnectionPermissionsGranted(context)) {
-            return PermissionRequired(PermissionUtil.connectionPermissions)
+            return LiveResult.PermissionRequired(PermissionUtil.connectionPermissions)
         }
 
         val networkInfo: NetworkInfo? = cm.activeNetworkInfo as NetworkInfo
         return when (networkInfo?.type) {
-            ConnectivityManager.TYPE_WIFI -> LiveValue(ConnectionType.WIFI)
-            ConnectivityManager.TYPE_MOBILE -> LiveValue(ConnectionType.MOBILE)
-            else -> LiveValue(ConnectionType.UNAVAILABLE)
+            ConnectivityManager.TYPE_WIFI -> LiveResult.LiveValue(ConnectionType.WIFI)
+            ConnectivityManager.TYPE_MOBILE -> LiveResult.LiveValue(ConnectionType.MOBILE)
+            else -> LiveResult.LiveValue(ConnectionType.UNAVAILABLE)
         }
     }
 

@@ -21,6 +21,8 @@
 
         <activity android:name=".LiveBatteryActivity" />
 
+        <activity android:name=".LiveVideoFramesActivity"/>
+
     </application>
 
 </manifest>

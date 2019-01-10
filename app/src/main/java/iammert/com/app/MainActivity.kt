@@ -6,14 +6,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.widget.Toast
 import com.google.android.gms.common.api.ResolvableApiException
-import com.raqun.live_battery.BatteryLiveData
+import com.iammert.live_tools_common.PermissionUtil
 import com.raqun.live_orientation.OrientationLiveData
 import iammert.com.live_location.LocationData
 import iammert.com.live_location.LocationLiveData
-import iammert.com.live_location.PermissionUtils
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (PermissionUtils.checkIfPermissionsGranted(grantResults)) {
+        if (PermissionUtil.isPermissionResultsGranted(grantResults)) {
             locationLiveData.start()
         }
     }

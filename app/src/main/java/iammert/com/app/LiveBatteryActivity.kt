@@ -3,10 +3,9 @@ package iammert.com.app
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
+import com.iammert.live_tools_common.LiveResult
 import com.raqun.live_battery.BatteryInfo
 import com.raqun.live_battery.BatteryLiveData
-import com.raqun.live_tools_core.LiveResult
 
 class LiveBatteryActivity : AppCompatActivity() {
 

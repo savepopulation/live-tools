@@ -3,9 +3,8 @@ package iammert.com.app
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.iammert.live_tools_common.LiveResult
 import com.raqun.liveconnection.ConnectionLiveData
-import com.raqun.live_tools_core.LiveResult.LiveValue
-import com.raqun.live_tools_core.LiveResult.PermissionRequired
 import com.raqun.liveconnection.ConnectionType
 
 class LiveConnectionActivity : AppCompatActivity() {
@@ -16,8 +15,8 @@ class LiveConnectionActivity : AppCompatActivity() {
 
         ConnectionLiveData(this).observe(this, Observer {
             when (it) {
-                is LiveValue<*> -> handleConnectionType(it.value as ConnectionType?)
-                is PermissionRequired -> handlePermissions(it.requiredPermissions)
+                is LiveResult.LiveValue<*> -> handleConnectionType(it.value as ConnectionType?)
+                is LiveResult.PermissionRequired -> handlePermissions(it.requiredPermissions)
             }
         })
     }

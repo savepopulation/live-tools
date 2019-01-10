@@ -6,6 +6,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.location.Location
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
+import com.iammert.live_tools_common.PermissionUtil
 
 
 /**
@@ -47,8 +48,8 @@ class LocationLiveData(private val activity: Activity) : MediatorLiveData<Locati
      * Initialization
      */
     init {
-        addSource(coarseLocationLiveData, { value = LocationData.success(it) })
-        addSource(fineLocationLiveData, { value = LocationData.success(it) })
+        addSource(coarseLocationLiveData) { value = LocationData.success(it) }
+        addSource(fineLocationLiveData) { value = LocationData.success(it) }
     }
 
     override fun onActive() {
@@ -75,7 +76,7 @@ class LocationLiveData(private val activity: Activity) : MediatorLiveData<Locati
      * and update livedata
      */
     private fun startLocationUpdates() {
-        if (!PermissionUtils.checkLocationPermission(activity)) {
+        if (PermissionUtil.isLocationPermissionsGranted(activity).not()) {
             value = LocationData.permissionRequired(listOf(android.Manifest.permission.ACCESS_FINE_LOCATION))
             return
         }
@@ -95,18 +96,14 @@ class LocationLiveData(private val activity: Activity) : MediatorLiveData<Locati
     /**
      * Removes listener onInactive
      */
-    private fun stopLocationUpdates() {
-        fusedLocationClient.removeLocationUpdates(fineLocationCallback)
-    }
+    private fun stopLocationUpdates() = fusedLocationClient.removeLocationUpdates(fineLocationCallback)
 
     /**
      * Creates a LocationRequest model
      */
-    private fun createLocationRequest(): LocationRequest {
-        val locationRequest = LocationRequest()
-        locationRequest.interval = 10000
-        locationRequest.fastestInterval = 5000
-        locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        return locationRequest
+    private fun createLocationRequest(): LocationRequest = LocationRequest().apply {
+        interval = 10000
+        fastestInterval = 5000
+        priority = LocationRequest.PRIORITY_HIGH_ACCURACY
     }
 }

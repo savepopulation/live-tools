@@ -6,10 +6,7 @@ import android.os.BatteryManager
 import android.content.Intent
 import android.content.BroadcastReceiver
 import android.content.IntentFilter
-import android.support.v4.content.LocalBroadcastManager
-import com.raqun.live_tools_core.LiveResult
-import com.raqun.live_tools_core.LiveResult.LiveValue
-
+import com.iammert.live_tools_common.LiveResult
 
 /**
  * Created by tyln on 2.05.2018.
@@ -57,7 +54,7 @@ class BatteryLiveData(private val context: Context) : LiveData<LiveResult>() {
         val scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, NO_VAL)
         val prc = 100 * (level / scale.toFloat())
 
-        postValue(LiveValue(BatteryInfo(batteryStatus, batteryPlug, level, scale, prc)))
+        postValue(LiveResult.LiveValue(BatteryInfo(batteryStatus, batteryPlug, level, scale, prc)))
     }
 
     inner class PowerConnectionReceiver : BroadcastReceiver() {
