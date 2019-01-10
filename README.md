@@ -6,6 +6,7 @@ Live-Tools is a library project which aims to convert some Android device featur
 - **Live Location:** Observe user location (fine and coarse location together)
 - **Live Battery:** Observe battery level, plug state, scale and percentage 
 - **Live Media Selector:** Observe taken photo or selected media URI.
+- **Live Video Frames:** Fetch Frame List (bitmaps) of given video path.
 
 # Usage
 
@@ -76,6 +77,20 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
 ```kotlin
 mediaSelectorLiveData.openCamera()
 mediaSelectorLiveData.openGallery()
+```
+
+## Live Video Frames
+
+Observes video frames as bitmap list.
+```kotlin
+val videoFramesLiveData = VideoFramesLiveData(this)
+videoFramesLiveData.retrieveFrames(SAMPLE_VIDEO_PATH)
+videoFramesLiveData.observe(this, Observer {
+      when (it?.status) {
+          VideoData.Status.PERMISSION_REQUIRED -> requestStorage(it.permissionList)
+          VideoData.Status.SUCCESS -> "{Use Your VideoData (Video Duration, Video Frames as Bitmap, etc.)}")
+      }
+})
 ```
 
 
