@@ -1,7 +1,13 @@
 # Live-Tools
 Live-Tools is a library project which aims to convert some Android device features to LiveData.
 
-# List
+# Live Tool List
+- **Live Orientation:** Observe orientation changes
+- **Live Location:** Observe user location (fine and coarse location together)
+- **Live Battery:** Observe battery level, plug state, scale and percentage 
+- **Live Media Selector:** Observe taken photo or selected media URI.
+
+# Usage
 
 ## live-orientation ##
 Observes orientation change even if device is forced to portrait mode. It works based on sensors.
