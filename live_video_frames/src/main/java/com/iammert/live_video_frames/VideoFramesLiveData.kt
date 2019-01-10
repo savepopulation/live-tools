@@ -17,7 +17,9 @@ class VideoFramesLiveData(private val context: Context,
 
     fun retrieveFrames(videoPath: String) {
         if (isStoragePermissionsGranted().not()) {
-            value = VideoData(status = VideoData.Status.PERMISSION_REQUIRED, permissionList = PermissionUtil.storagePermissions)
+            value = VideoData(
+                    status = VideoData.Status.PERMISSION_REQUIRED,
+                    permissionList = PermissionUtil.storagePermissions)
             return
         }
 
