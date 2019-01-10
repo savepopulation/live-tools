@@ -83,13 +83,13 @@ mediaSelectorLiveData.openGallery()
 
 Observes video frames as bitmap list.
 ```kotlin
-videoFramesLiveData = VideoFramesLiveData(this)
+val videoFramesLiveData = VideoFramesLiveData(this)
 videoFramesLiveData.retrieveFrames(SAMPLE_VIDEO_PATH)
 videoFramesLiveData.observe(this, Observer {
-when (it?.status) {
-    VideoData.Status.PERMISSION_REQUIRED -> requestStorage(it.permissionList)
-    VideoData.Status.SUCCESS -> "{Use Your VideoData (Video Duration, Video Frames as Bitmap, etc.)}")
-}
+      when (it?.status) {
+          VideoData.Status.PERMISSION_REQUIRED -> requestStorage(it.permissionList)
+          VideoData.Status.SUCCESS -> "{Use Your VideoData (Video Duration, Video Frames as Bitmap, etc.)}")
+      }
 })
 ```
 
