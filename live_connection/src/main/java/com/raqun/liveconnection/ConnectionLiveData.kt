@@ -8,7 +8,7 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.net.wifi.WifiManager
-import android.support.v4.content.LocalBroadcastManager
+import androidx.lifecycle.LiveData
 import com.iammert.live_tools_common.LiveResult
 import com.iammert.live_tools_common.PermissionUtil
 

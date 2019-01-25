@@ -10,6 +10,7 @@ object CoreLibraries {
  */
 object SupportLibraries {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.xVersion}"
+    const val androidXcore = "androidx.core:core:${Versions.xVersion}"
 }
 
 /**
