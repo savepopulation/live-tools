@@ -1,11 +1,11 @@
 package com.raqun.live_orientation
 
-import android.arch.lifecycle.LiveData
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import androidx.lifecycle.LiveData
 
 /**
  * Created by tyln on 20.02.2018.
