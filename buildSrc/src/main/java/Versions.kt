@@ -36,6 +36,6 @@ object Versions {
     const val coroutinesVersion = "1.0.1"
     const val playServicesLocationVersion = "11.8.0"
     const val lifecycleVersion = "2.0.0-rc01"
-    const val liveDataCoreVersion = "2.0.0-rc01"
+    const val liveDataVersion = "2.0.0-rc01"
 }
 

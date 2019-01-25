@@ -4,4 +4,5 @@ dependencies {
     api Libraries.liveDataCore
     api Libraries.androidXcore
     api Libraries.localBroadcastManager
+    api Libraries.liveData
 }

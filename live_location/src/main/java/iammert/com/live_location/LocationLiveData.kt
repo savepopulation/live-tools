@@ -1,9 +1,10 @@
 package iammert.com.live_location
 
+import android.annotation.SuppressLint
 import android.app.Activity
-import android.arch.lifecycle.MediatorLiveData
-import android.arch.lifecycle.MutableLiveData
 import android.location.Location
+import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.MutableLiveData
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.iammert.live_tools_common.PermissionUtil
@@ -75,6 +76,7 @@ class LocationLiveData(private val activity: Activity) : MediatorLiveData<Locati
      * If all good, then start listening user location
      * and update livedata
      */
+    @SuppressLint("MissingPermission")
     private fun startLocationUpdates() {
         if (PermissionUtil.isLocationPermissionsGranted(activity).not()) {
             value = LocationData.permissionRequired(listOf(android.Manifest.permission.ACCESS_FINE_LOCATION))
