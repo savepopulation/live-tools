@@ -1,11 +1,11 @@
 package com.raqun.live_media_selector
 
 import android.app.Activity
-import android.arch.lifecycle.LiveData
 import android.content.Intent
 import android.net.Uri
 import android.provider.MediaStore
-import android.support.v4.app.ActivityCompat.startActivityForResult
+import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.lifecycle.LiveData
 import java.io.File
 import java.io.IOException
 

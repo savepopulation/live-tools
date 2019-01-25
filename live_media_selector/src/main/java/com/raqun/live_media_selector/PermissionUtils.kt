@@ -3,7 +3,7 @@ package com.raqun.live_media_selector
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager.PERMISSION_GRANTED
-import android.support.v4.app.ActivityCompat
+import androidx.core.app.ActivityCompat
 
 class PermissionUtils {
 
