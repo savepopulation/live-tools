@@ -1,1 +1,4 @@
 apply from: "$rootDir/common-android-library.gradle"
+dependencies {
+    api Libraries.lifecycleCommon
+}

@@ -25,6 +25,7 @@ object TestLibraries {
  * Common Libraries
  */
 object Libraries {
+    const val lifecycleCommon = "androidx.lifecycle:lifecycle-common:${Versions.lifecycleVersion}"
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesVersion}"
     const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
     const val googlePlayServicesLocation = "com.google.android.gms:play-services-location:${Versions.playServicesLocationVersion}"

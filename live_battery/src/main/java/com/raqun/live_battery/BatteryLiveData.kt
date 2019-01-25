@@ -1,12 +1,10 @@
 package com.raqun.live_battery
 
-import android.arch.lifecycle.LiveData
 import android.content.Context
 import android.os.BatteryManager
 import android.content.Intent
 import android.content.BroadcastReceiver
 import android.content.IntentFilter
-import com.iammert.live_tools_common.LiveResult
 
 /**
  * Created by tyln on 2.05.2018.
