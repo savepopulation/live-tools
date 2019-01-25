@@ -34,5 +34,6 @@ object Versions {
     const val testRunnerVersion = "1.1.0"
     const val espressoCoreVersion = "3.1.0"
     const val coroutinesVersion = "1.0.1"
+    const val playServicesLocationVersion = "11.8.0"
 }
 
