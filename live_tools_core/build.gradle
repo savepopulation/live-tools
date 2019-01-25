@@ -5,4 +5,6 @@ dependencies {
     api Libraries.androidXcore
     api Libraries.localBroadcastManager
     api Libraries.liveData
+    api Libraries.coroutinesCore
+    api Libraries.coroutinesAndroid
 }

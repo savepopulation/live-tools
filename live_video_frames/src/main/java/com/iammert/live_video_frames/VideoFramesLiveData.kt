@@ -1,7 +1,7 @@
 package com.iammert.live_video_frames
 
-import android.arch.lifecycle.LiveData
 import android.content.Context
+import androidx.lifecycle.LiveData
 import com.iammert.live_tools_common.PermissionUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class VideoFramesLiveData(private val context: Context,
-                          private val videoFramesConfig: FrameConfig = FrameConfig.default()) : LiveData<VideoData>() {
+                          videoFramesConfig: FrameConfig = FrameConfig.default()) : LiveData<VideoData>() {
 
     private val uiScope = CoroutineScope(Dispatchers.Main)
 
