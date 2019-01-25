@@ -1,6 +1,5 @@
 package com.raqun.liveconnection
 
-import android.arch.lifecycle.LiveData
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -9,6 +8,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.net.wifi.WifiManager
 import androidx.lifecycle.LiveData
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.iammert.live_tools_common.LiveResult
 import com.iammert.live_tools_common.PermissionUtil
 

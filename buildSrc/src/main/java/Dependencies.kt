@@ -10,7 +10,6 @@ object CoreLibraries {
  */
 object SupportLibraries {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.xVersion}"
-    const val androidXcore = "androidx.core:core:${Versions.xVersion}"
 }
 
 /**
@@ -26,9 +25,11 @@ object TestLibraries {
  * Common Libraries
  */
 object Libraries {
+    const val androidXcore = "androidx.core:core:${Versions.xVersion}"
     const val lifecycleCommon = "androidx.lifecycle:lifecycle-common:${Versions.lifecycleVersion}"
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesVersion}"
     const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
     const val googlePlayServicesLocation = "com.google.android.gms:play-services-location:${Versions.playServicesLocationVersion}"
     const val liveDataCore = "androidx.lifecycle:lifecycle-livedata-core:${Versions.liveDataCoreVersion}"
+    const val localBroadcastManager = "androidx.localbroadcastmanager:localbroadcastmanager:${Versions.xVersion}"
 }

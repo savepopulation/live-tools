@@ -2,5 +2,6 @@ apply from: "$rootDir/core-android-library.gradle"
 dependencies {
     api Libraries.lifecycleCommon
     api Libraries.liveDataCore
-    api SupportLibraries.androidXcore
+    api Libraries.androidXcore
+    api Libraries.localBroadcastManager
 }
