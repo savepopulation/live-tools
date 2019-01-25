@@ -1,10 +1,10 @@
 package iammert.com.app
 
-import android.arch.lifecycle.Observer
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.lifecycle.Observer
 import com.iammert.live_tools_common.PermissionUtil
 import com.iammert.live_video_frames.VideoData
 import com.iammert.live_video_frames.VideoFramesLiveData

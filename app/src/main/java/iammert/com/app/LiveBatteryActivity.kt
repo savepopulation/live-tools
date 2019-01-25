@@ -1,8 +1,6 @@
 package iammert.com.app
 
-import android.arch.lifecycle.Observer
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.iammert.live_tools_common.LiveResult

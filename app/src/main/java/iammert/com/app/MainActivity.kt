@@ -1,13 +1,13 @@
 package iammert.com.app
 
 import android.app.Activity
-import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.Toast
-import com.google.android.gms.common.api.ResolvableApiException
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.lifecycle.Observer
 import com.iammert.live_tools_common.PermissionUtil
 import com.raqun.live_orientation.OrientationLiveData
 import iammert.com.live_location.LocationData
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                 Observer {
                     when (it?.status) {
                         LocationData.Status.PERMISSION_REQUIRED -> requestPermissions(it.permissionList)
-                        LocationData.Status.ENABLE_SETTINGS -> enableLocationSettings(it.resolvableApiException)
+                        LocationData.Status.ENABLE_SETTINGS -> Log.e("error", "resolvable exception")//enableLocationSettings(it.resolvableApiException)
                     }
                 })
 
@@ -42,9 +42,10 @@ class MainActivity : AppCompatActivity() {
         ActivityCompat.requestPermissions(this, permissionList, REQUEST_CODE_LOCATION_PERMISSION)
     }
 
+    /*
     private fun enableLocationSettings(exception: ResolvableApiException?) {
         exception?.startResolutionForResult(this, REQUEST_CODE_LOCATION_SETTINGS)
-    }
+    }*/
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
