@@ -1,3 +1,6 @@
 // common library gradle
 apply plugin: Plugins.androidLibrary
-apply from: "$rootDir/common.gradle"
+apply from: "$rootDir/core-android-library.gradle"
+dependencies {
+    api project(Modules.liveToolsCore)
+}

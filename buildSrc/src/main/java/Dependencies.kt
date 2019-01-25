@@ -29,4 +29,5 @@ object Libraries {
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesVersion}"
     const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
     const val googlePlayServicesLocation = "com.google.android.gms:play-services-location:${Versions.playServicesLocationVersion}"
+    const val liveDataCore = "androidx.lifecycle:lifecycle-livedata-core:${Versions.liveDataCoreVersion}"
 }

@@ -1,0 +1,3 @@
+// common library gradle
+apply plugin: Plugins.androidLibrary
+apply from: "$rootDir/common.gradle"

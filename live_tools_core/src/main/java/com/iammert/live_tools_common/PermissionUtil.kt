@@ -3,7 +3,6 @@ package com.iammert.live_tools_common
 import android.Manifest.permission.*
 import android.content.Context
 import android.content.pm.PackageManager
-import android.support.v4.app.ActivityCompat
 
 class PermissionUtil {
     companion object {

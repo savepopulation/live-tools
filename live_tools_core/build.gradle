@@ -1,4 +1,5 @@
-apply from: "$rootDir/common-android-library.gradle"
+apply from: "$rootDir/core-android-library.gradle"
 dependencies {
     api Libraries.lifecycleCommon
+    api Libraries.liveDataCore
 }
