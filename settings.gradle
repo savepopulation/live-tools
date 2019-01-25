@@ -1,1 +1,12 @@
-include ':app', ':live-orientation', ':live-connection', ':live-location', ':live-battery', ':live-media-selector', ':live-media-selector', ':live_video_frames', ':live_tools_common'
+include Modules.app
+
+/*
+ * Live Tools
+ */
+include Modules.liveToolsCore
+include Modules.liveBattery
+include Modules.liveConnection
+include Modules.liveLocation
+include Modules.liveMediaSelector
+include Modules.liveOrientation
+include Modules.liveVideoFrames
