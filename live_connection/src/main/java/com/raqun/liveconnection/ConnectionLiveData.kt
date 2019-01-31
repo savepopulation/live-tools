@@ -15,7 +15,7 @@ import com.iammert.live_tools_common.PermissionUtil
 /**
  * Created by tyln on 22.02.2018.
  */
-class ConnectionLiveData(private val context: Context) : LiveData<LiveResult>() {
+class ConnectionLiveData(private val context: Context) : LiveData<LiveResult<ConnectionType>>() {
 
     private val networkChangeReceiver: NetworkChangeReceiver
 
@@ -25,6 +25,10 @@ class ConnectionLiveData(private val context: Context) : LiveData<LiveResult>() 
 
     override fun onActive() {
         super.onActive()
+        if (!PermissionUtil.isConnectionPermissionsGranted(context)) {
+            postValue(LiveResult.PermissionRequired(PermissionUtil.connectionPermissions))
+            return
+        }
         LocalBroadcastManager.getInstance(context).registerReceiver(networkChangeReceiver,
                 IntentFilter().apply {
                     addAction(ConnectivityManager.CONNECTIVITY_ACTION)
@@ -37,12 +41,9 @@ class ConnectionLiveData(private val context: Context) : LiveData<LiveResult>() 
         super.onInactive()
     }
 
-    private fun getConnectionStatus(): LiveResult {
+    private fun getConnectionStatus(): LiveResult<ConnectionType> {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
-        if (!PermissionUtil.isConnectionPermissionsGranted(context)) {
-            return LiveResult.PermissionRequired(PermissionUtil.connectionPermissions)
-        }
 
         val networkInfo: NetworkInfo? = cm.activeNetworkInfo as NetworkInfo
         return when (networkInfo?.type) {

@@ -2,10 +2,10 @@ package com.iammert.live_tools_common
 
 import java.util.*
 
-sealed class LiveResult {
-    data class LiveValue<T>(val value: T?) : LiveResult()
+sealed class LiveResult<out T : Any> {
+    data class LiveValue<out T : Any>(val value: T?) : LiveResult<T>()
 
-    data class PermissionRequired(val requiredPermissions: Array<String>) : LiveResult() {
+    data class PermissionRequired(val requiredPermissions: Array<String>) : LiveResult<Nothing>() {
         override fun equals(other: Any?): Boolean {
             if (this === other) return true
             if (other !is PermissionRequired) return false

@@ -11,7 +11,7 @@ import com.iammert.live_tools_common.LiveResult
 /**
  * Created by tyln on 2.05.2018.
  */
-class BatteryLiveData(private val context: Context) : LiveData<LiveResult>() {
+class BatteryLiveData(private val context: Context) : LiveData<LiveResult<BatteryInfo>>() {
 
     private val powerConnectionReceiver: PowerConnectionReceiver
 

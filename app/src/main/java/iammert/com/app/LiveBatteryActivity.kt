@@ -16,7 +16,7 @@ class LiveBatteryActivity : AppCompatActivity() {
         BatteryLiveData(this)
                 .observe(this, Observer {
                     when (it) {
-                        is LiveResult.LiveValue<*> -> handleBatteryInfo(it as BatteryInfo?)
+                        is LiveResult.LiveValue<BatteryInfo> -> handleBatteryInfo(it.value)
                     }
                 })
     }
