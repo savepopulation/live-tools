@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
+import com.iammert.live_tools_common.LiveResult
 import com.iammert.live_tools_common.PermissionUtil
+import com.raqun.live_orientation.DeviceOrientation
 import com.raqun.live_orientation.OrientationLiveData
 import iammert.com.live_location.LocationData
 import iammert.com.live_location.LocationLiveData
@@ -23,7 +25,10 @@ class MainActivity : AppCompatActivity() {
 
         OrientationLiveData(this)
                 .observe(this, Observer {
-                    it?.let { Toast.makeText(this, it.name, Toast.LENGTH_SHORT).show() }
+                    when (it) {
+                        is LiveResult.LiveValue<DeviceOrientation> -> Toast.makeText(this,
+                                it.value.toString(), Toast.LENGTH_SHORT).show()
+                    }
                 })
 
         locationLiveData = LocationLiveData(this)
