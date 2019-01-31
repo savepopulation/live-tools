@@ -6,11 +6,12 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import androidx.lifecycle.LiveData
+import com.iammert.live_tools_common.LiveResult
 
 /**
  * Created by tyln on 20.02.2018.
  */
-class OrientationLiveData(context: Context) : LiveData<DeviceOrientation>(), SensorEventListener {
+class OrientationLiveData(context: Context) : LiveData<LiveResult<DeviceOrientation>>(), SensorEventListener {
 
     private val sensorManager: SensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     private val accelerometer: Sensor
@@ -32,8 +33,8 @@ class OrientationLiveData(context: Context) : LiveData<DeviceOrientation>(), Sen
         super.onInactive()
     }
 
-    override fun getValue(): DeviceOrientation? {
-        return currentOrientation
+    override fun getValue(): LiveResult<DeviceOrientation> {
+        return LiveResult.LiveValue(currentOrientation)
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
@@ -77,7 +78,7 @@ class OrientationLiveData(context: Context) : LiveData<DeviceOrientation>(), Sen
 
             if (orientationChanged) {
                 this.currentOrientation = DeviceOrientation.byValue(currentOrientationValue)
-                value = currentOrientation
+                value = LiveResult.LiveValue(currentOrientation)
             }
         }
     }
