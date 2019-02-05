@@ -1,4 +1,4 @@
-package com.raqun.location
+package com.raqun.live.location
 
 import android.location.Location
 import com.google.android.gms.common.api.ResolvableApiException

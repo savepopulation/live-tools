@@ -1,4 +1,4 @@
-package com.raqun.location
+package com.raqun.live.location
 
 import android.Manifest
 import android.annotation.SuppressLint
