@@ -1,4 +1,4 @@
-package com.raqun.live_orientation
+package com.raqun.orientation
 
 import android.content.Context
 import android.hardware.Sensor
