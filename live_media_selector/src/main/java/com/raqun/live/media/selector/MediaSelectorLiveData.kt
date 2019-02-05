@@ -1,4 +1,4 @@
-package com.raqun.mediaselector
+package com.raqun.live.media.selector
 
 import android.app.Activity
 import android.content.Intent

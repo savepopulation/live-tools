@@ -1,10 +1,11 @@
-package com.raqun.mediaselector
+package com.raqun.live.media.selector
 
 import android.content.Context
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import androidx.core.content.FileProvider
+import com.raqun.mediaselector.BuildConfig
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
