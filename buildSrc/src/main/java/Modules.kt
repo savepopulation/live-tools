@@ -18,4 +18,5 @@ object Modules {
     const val liveMediaSelector = ":live_media_selector"
     const val liveOrientation = ":live_orientation"
     const val liveVideoFrames = ":live_video_frames"
+    const val liveWifi = ":live_wifi"
 }

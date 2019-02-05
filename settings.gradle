@@ -11,3 +11,4 @@ include Modules.liveLocation
 include Modules.liveMediaSelector
 include Modules.liveOrientation
 include Modules.liveVideoFrames
+include Modules.liveWifi
