@@ -10,8 +10,8 @@ import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
 import com.raqun.live.core.LiveResult
 import com.raqun.live.core.PermissionUtil
-import com.raqun.orientation.DeviceOrientation
-import com.raqun.orientation.OrientationLiveData
+import com.raqun.live.orientation.DeviceOrientation
+import com.raqun.live.orientation.OrientationLiveData
 import com.raqun.live.location.LocationData
 import com.raqun.live.location.LocationLiveData
 
