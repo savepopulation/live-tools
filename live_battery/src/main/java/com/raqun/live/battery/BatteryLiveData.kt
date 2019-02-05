@@ -1,4 +1,4 @@
-package com.raqun.battery
+package com.raqun.live.battery
 
 import android.content.Context
 import android.os.BatteryManager
