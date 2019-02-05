@@ -6,7 +6,7 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import androidx.lifecycle.LiveData
-import com.iammert.live_tools_common.LiveResult
+import com.raqun.live.core.LiveResult
 
 /**
  * Created by tyln on 20.02.2018.

@@ -2,7 +2,7 @@ package com.iammert.live_video_frames
 
 import android.content.Context
 import androidx.lifecycle.LiveData
-import com.iammert.live_tools_common.PermissionUtil
+import com.raqun.live.core.PermissionUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

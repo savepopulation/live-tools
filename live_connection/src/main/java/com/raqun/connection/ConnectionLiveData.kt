@@ -9,8 +9,8 @@ import android.net.NetworkInfo
 import android.net.wifi.WifiManager
 import androidx.lifecycle.LiveData
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.iammert.live_tools_common.LiveResult
-import com.iammert.live_tools_common.PermissionUtil
+import com.raqun.live.core.LiveResult
+import com.raqun.live.core.PermissionUtil
 
 /**
  * Created by tyln on 22.02.2018.

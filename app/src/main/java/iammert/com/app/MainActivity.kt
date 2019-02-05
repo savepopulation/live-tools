@@ -8,8 +8,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
-import com.iammert.live_tools_common.LiveResult
-import com.iammert.live_tools_common.PermissionUtil
+import com.raqun.live.core.LiveResult
+import com.raqun.live.core.PermissionUtil
 import com.raqun.orientation.DeviceOrientation
 import com.raqun.orientation.OrientationLiveData
 import com.raqun.location.LocationData

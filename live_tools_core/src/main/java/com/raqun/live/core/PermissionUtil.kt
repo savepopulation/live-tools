@@ -1,4 +1,4 @@
-package com.iammert.live_tools_common
+package com.raqun.live.core
 
 import android.Manifest.permission.*
 import android.content.Context

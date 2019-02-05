@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
-import com.iammert.live_tools_common.PermissionUtil
+import com.raqun.live.core.PermissionUtil
 import com.iammert.live_video_frames.VideoData
 import com.iammert.live_video_frames.VideoFramesLiveData
 

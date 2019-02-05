@@ -8,7 +8,7 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
-import com.iammert.live_tools_common.PermissionUtil
+import com.raqun.live.core.PermissionUtil
 
 
 /**
