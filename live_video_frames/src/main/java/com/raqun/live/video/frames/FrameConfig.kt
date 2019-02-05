@@ -1,4 +1,4 @@
-package com.iammert.live_video_frames
+package com.raqun.live.video.frames
 
 data class FrameConfig(val frameDurationInMillis: Long, val frameWidth: Float, val frameHeight: Float){
 

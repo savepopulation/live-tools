@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
 import com.raqun.live.core.PermissionUtil
-import com.iammert.live_video_frames.VideoData
-import com.iammert.live_video_frames.VideoFramesLiveData
+import com.raqun.live.video.frames.VideoData
+import com.raqun.live.video.frames.VideoFramesLiveData
 
 class LiveVideoFramesActivity : AppCompatActivity() {
 
