@@ -1,4 +1,4 @@
-package com.raqun.live_media_selector;
+package com.raqun.mediaselector;
 
 import org.junit.Test;
 
