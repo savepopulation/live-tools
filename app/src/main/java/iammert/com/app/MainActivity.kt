@@ -12,8 +12,8 @@ import com.iammert.live_tools_common.LiveResult
 import com.iammert.live_tools_common.PermissionUtil
 import com.raqun.live_orientation.DeviceOrientation
 import com.raqun.live_orientation.OrientationLiveData
-import iammert.com.live_location.LocationData
-import iammert.com.live_location.LocationLiveData
+import com.raqun.location.LocationData
+import com.raqun.location.LocationLiveData
 
 class MainActivity : AppCompatActivity() {
 

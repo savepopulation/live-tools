@@ -1,4 +1,4 @@
-package com.raqun.liveconnection;
+package com.raqun.connection;
 
 import org.junit.Test;
 

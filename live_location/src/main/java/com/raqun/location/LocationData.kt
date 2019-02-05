@@ -1,4 +1,4 @@
-package iammert.com.live_location
+package com.raqun.location
 
 import android.location.Location
 import com.google.android.gms.common.api.ResolvableApiException

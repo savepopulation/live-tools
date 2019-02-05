@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.iammert.live_tools_common.LiveResult
-import com.raqun.liveconnection.ConnectionLiveData
-import com.raqun.liveconnection.ConnectionType
+import com.raqun.connection.ConnectionLiveData
+import com.raqun.connection.ConnectionType
 
 class LiveConnectionActivity : AppCompatActivity() {
 

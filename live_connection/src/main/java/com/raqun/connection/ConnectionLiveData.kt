@@ -1,4 +1,4 @@
-package com.raqun.liveconnection
+package com.raqun.connection
 
 import android.content.BroadcastReceiver
 import android.content.Context
