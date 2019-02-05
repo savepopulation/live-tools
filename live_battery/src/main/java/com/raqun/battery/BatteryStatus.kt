@@ -1,4 +1,4 @@
-package com.raqun.live_battery
+package com.raqun.battery
 
 /**
  * Created by tyln on 2.05.2018.

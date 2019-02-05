@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.iammert.live_tools_common.LiveResult
-import com.raqun.live_battery.BatteryInfo
-import com.raqun.live_battery.BatteryLiveData
+import com.raqun.battery.BatteryInfo
+import com.raqun.battery.BatteryLiveData
 
 class LiveBatteryActivity : AppCompatActivity() {
 

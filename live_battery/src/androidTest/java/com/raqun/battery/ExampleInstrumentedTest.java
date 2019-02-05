@@ -1,4 +1,4 @@
-package com.raqun.live_battery;
+package com.raqun.battery;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

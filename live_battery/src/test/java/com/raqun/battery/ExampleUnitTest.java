@@ -1,4 +1,4 @@
-package com.raqun.live_battery;
+package com.raqun.battery;
 
 import org.junit.Test;
 
