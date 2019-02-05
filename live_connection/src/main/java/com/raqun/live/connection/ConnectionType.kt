@@ -1,4 +1,4 @@
-package com.raqun.connection
+package com.raqun.live.connection
 
 /**
  * Created by tyln on 22.02.2018.
