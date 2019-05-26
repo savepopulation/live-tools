@@ -1,4 +1,4 @@
-include ':live_wifi'
+
 include Modules.app
 
 /*
@@ -12,3 +12,4 @@ include Modules.liveMediaSelector
 include Modules.liveOrientation
 include Modules.liveVideoFrames
 include Modules.liveWifi
+include Modules.liveShake
