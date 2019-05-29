@@ -9,6 +9,8 @@ dependencies {
     implementation project(Modules.liveMediaSelector)
     implementation project(Modules.liveOrientation)
     implementation project(Modules.liveVideoFrames)
+    implementation project(Modules.liveWifi)
+    implementation project(Modules.liveShake)
 
     // Support Libraries
     implementation SupportLibraries.appCompat
