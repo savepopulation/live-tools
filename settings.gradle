@@ -13,3 +13,4 @@ include Modules.liveOrientation
 include Modules.liveVideoFrames
 include Modules.liveWifi
 include Modules.liveShake
+include Modules.liveVibration
