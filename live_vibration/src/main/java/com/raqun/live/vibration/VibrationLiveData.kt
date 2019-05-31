@@ -10,7 +10,7 @@ import com.raqun.live.core.LiveResult
 class VibrationLiveData(
         private val context: Context,
         private val vibrateTime: Long
-) : LiveData<LiveResult<Unit>>() {
+) : LiveData<LiveResult<Vibrate>>() {
 
     init {
         vibratePhone()
@@ -19,11 +19,16 @@ class VibrationLiveData(
     private fun vibratePhone() {
         val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         if (vibrator.hasVibrator()) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                postValue(LiveResult.LiveValue(vibrator.vibrate(VibrationEffect.createOneShot(vibrateTime, VibrationEffect.DEFAULT_AMPLITUDE))))
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator.vibrate(VibrationEffect.createOneShot(vibrateTime, VibrationEffect.DEFAULT_AMPLITUDE))
+                postValue(LiveResult.LiveValue(Vibrate.HasVibrate))
             } else {
-                postValue(LiveResult.LiveValue(vibrator.vibrate(vibrateTime)))
+                vibrator.vibrate(vibrateTime)
+                postValue(LiveResult.LiveValue(Vibrate.HasVibrate))
             }
+        }
+        else{
+            postValue(LiveResult.LiveValue(Vibrate.HasNotVibrate))
         }
     }
 }
