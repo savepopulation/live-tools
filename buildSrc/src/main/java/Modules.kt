@@ -21,4 +21,5 @@ object Modules {
     const val liveWifi = ":live_wifi"
     const val liveShake = ":live_shake"
     const val liveVibration = ":live_vibration"
+    const val liveBluetooth = ":live_bluetooth"
 }

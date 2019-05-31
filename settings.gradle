@@ -1,4 +1,5 @@
 
+
 include Modules.app
 
 /*
@@ -14,3 +15,4 @@ include Modules.liveVideoFrames
 include Modules.liveWifi
 include Modules.liveShake
 include Modules.liveVibration
+include Modules.liveBluetooth
