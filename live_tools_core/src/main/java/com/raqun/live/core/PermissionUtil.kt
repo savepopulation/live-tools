@@ -20,6 +20,8 @@ class PermissionUtil {
 
         val storagePermissions = arrayOf(READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE)
 
+        val bluetoothConnectionPermissions = arrayOf(BLUETOOTH)
+
         /**
          * Permission check methods
          */
@@ -34,6 +36,8 @@ class PermissionUtil {
         fun isStoragePermissionGranted(context: Context) = storagePermissions.isPermissionsGranted(context)
 
         fun isPermissionResultsGranted(grantResult: IntArray) = grantResult.none { it != PackageManager.PERMISSION_GRANTED }
+
+        fun isBluetoothConnectionPermissionsGranted(context: Context) = bluetoothConnectionPermissions.isPermissionsGranted(context)
     }
 }
 

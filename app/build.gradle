@@ -11,6 +11,8 @@ dependencies {
     implementation project(Modules.liveVideoFrames)
     implementation project(Modules.liveWifi)
     implementation project(Modules.liveShake)
+    implementation project(Modules.liveVibration)
+    implementation project(Modules.liveBluetooth)
 
     // Support Libraries
     implementation SupportLibraries.appCompat
