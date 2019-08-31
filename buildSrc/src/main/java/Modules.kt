@@ -19,4 +19,5 @@ object Modules {
     const val liveOrientation = ":live_orientation"
     const val liveVideoFrames = ":live_video_frames"
     const val liveWifi = ":live_wifi"
+    const val liveShake = ":live_shake"
 }
