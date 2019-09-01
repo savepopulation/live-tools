@@ -1,10 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="32dp">
+
+    <Button
+        android:id="@+id/liveBatteryButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Live Battery"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
+    <Button
+        android:id="@+id/liveConnectionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Live Connection"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/liveBatteryButton" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/liveVideoFramesButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Live Video Frames"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/liveConnectionButton" />
+
+    <Button
+        android:id="@+id/liveLocationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Live Location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/liveVideoFramesButton" />
+
+    <Button
+        android:id="@+id/liveMemoryButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Live Memory"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/liveLocationButton" />
+
+    <Button
+        android:id="@+id/liveOrientationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Live Orientation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/liveMemoryButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

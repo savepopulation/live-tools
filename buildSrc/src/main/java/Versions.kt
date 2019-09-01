@@ -37,5 +37,6 @@ object Versions {
     const val playServicesLocationVersion = "11.8.0"
     const val lifecycleVersion = "2.0.0-rc01"
     const val liveDataVersion = "2.0.0-rc01"
+    const val constraintLayout ="1.1.3"
 }
 

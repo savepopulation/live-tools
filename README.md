@@ -92,7 +92,17 @@ videoFramesLiveData.observe(this, Observer {
       }
 })
 ```
+## Live - Memory Usage
+Observes memory changes info.
+```kotlin
+ MemoryInfoLiveData(this)
+                .observe(this, Observer { memoryInfo ->
+                    when (memoryInfo) {
+                        is LiveResult.LiveValue<MemoryInfoData> -> handleMemoryInfo(memoryInfo.value)
+                    }
 
+                })
+```
 
 ### Dependency<br>
 ```
