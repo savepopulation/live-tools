@@ -118,8 +118,10 @@ dependencies {
 
 <a href="https://github.com/iammert">Mert Şimşek</a><br>
 <a href="https://github.com/EfeBudak">Efe Budak</a><br>
-<a href="https://github.com/savepopulation">Taylan Sbrcn</a><br>
+<a href="https://github.com/savepopulation">Taylan Sabırcan</a><br>
 <a href="https://github.com/aykuttasil">Aykut Asil</a><br>
+<a href="https://github.com/ogulcanucarsu">Oğulcan Uçarsu</a><br>
+<a href="https://github.com/tlgbltcn">Tolga Bolatcan</a><br>
 
 ### List of Apps using Live-Tools:
 <a href="https://play.google.com/store/apps/details?id=com.raqun.labs">Phone Lab</a>
